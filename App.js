@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
   const [outputText, setOutputText] = useState(
@@ -7,17 +7,18 @@ export default function App() {
   );
   return (
     <View style={styles.container}>
-      <Text>{outputText}</Text>
-      <Button onPress={() => setOutputText("Text changed!")} title="Change Text" />
+      <TextInput placeholder="Course goal" style={{borderColor:'black',borderWidth:1,padding:10}}/>
+      <Button
+        onPress={() => setOutputText("Text changed!")}
+        title="Add"
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection:"row",
+    padding:30
   }
 });
