@@ -23,6 +23,7 @@ export default function App() {
         <Button onPress={addGoalHandler} title="Add" />
       </View>
       <FlatList
+        keyExtractor={(item, index) => index.toString()}
         data={courseGoals}
         renderItem={itemData => (
           <View
