@@ -8,11 +8,11 @@ const GoalInput = props => {
     setEnteredGoal(enteredText);
   };
   return (
-    <Modal visible={props.visible}>
+    <Modal visible={props.visible} animationType="slide">
       <View
         style={{
-          flexDirection: "row",
-          justifyContent: "space-around",
+          flex: 1,
+          justifyContent: "center",
           alignItems: "center"
         }}
       >
@@ -23,7 +23,8 @@ const GoalInput = props => {
             borderColor: "black",
             borderWidth: 1,
             padding: 10,
-            width: 200
+            width: 200,
+            marginBottom: 10
           }}
           onChangeText={goalInputHandler}
         />
