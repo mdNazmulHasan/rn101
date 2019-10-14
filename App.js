@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Button,
-  TextInput,
-  Text,
-  ScrollView,
-  FlatList
-} from "react-native";
+import { StyleSheet, View, Button, TextInput, Text, ScrollView, FlatList } from "react-native";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
@@ -23,7 +15,14 @@ export default function App() {
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         data={courseGoals}
-        renderItem={itemData => <GoalItem title={itemData.item} />}
+        renderItem={itemData => (
+          <GoalItem
+            title={itemData.item}
+            onDelete={() => {
+              console.log("Does that work??????");
+            }}
+          />
+        )}
       />
     </View>
   );
