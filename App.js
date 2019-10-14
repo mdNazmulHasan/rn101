@@ -9,20 +9,23 @@ export default function App() {
   const addGoalHandler = goalTitle => {
     setCourseGoals(currentGoals => [...currentGoals, goalTitle]);
   };
+  const removeGoalHandler = deleteIndex => {
+    setCourseGoals(currentGoals => {
+      //currentGoals.splice(index, 1);
+      return currentGoals.filter((goal, index) => index !== deleteIndex);
+    });
+    console.log("delete", deleteIndex);
+  };
   return (
     <View style={styles.container}>
       <GoalInput onAddGoal={addGoalHandler} />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         data={courseGoals}
-        renderItem={itemData => (
-          <GoalItem
-            title={itemData.item}
-            onDelete={() => {
-              console.log("Does that work??????");
-            }}
-          />
-        )}
+        renderItem={({ item, index }) => {
+          console.log("index koi", index, item);
+          return <GoalItem title={item} onDelete={removeGoalHandler} index={index} />;
+        }}
       />
     </View>
   );

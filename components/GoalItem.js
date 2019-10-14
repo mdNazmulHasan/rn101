@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableHighlight } from "react-native";
 
 const GoalItem = props => {
+  console.log(props.title);
   return (
-    <TouchableOpacity onPress={props.onDelete}>
+    <TouchableHighlight onPress={props.onDelete.bind(this, props.index)}>
       <View
         style={{
           padding: 10,
@@ -15,7 +16,7 @@ const GoalItem = props => {
       >
         <Text>{props.title}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
