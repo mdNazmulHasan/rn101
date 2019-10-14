@@ -11,10 +11,8 @@ export default function App() {
   };
   const removeGoalHandler = deleteIndex => {
     setCourseGoals(currentGoals => {
-      //currentGoals.splice(index, 1);
       return currentGoals.filter((goal, index) => index !== deleteIndex);
     });
-    console.log("delete", deleteIndex);
   };
   return (
     <View style={styles.container}>
@@ -23,7 +21,6 @@ export default function App() {
         keyExtractor={(item, index) => index.toString()}
         data={courseGoals}
         renderItem={({ item, index }) => {
-          console.log("index koi", index, item);
           return <GoalItem title={item} onDelete={removeGoalHandler} index={index} />;
         }}
       />
