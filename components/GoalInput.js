@@ -34,8 +34,14 @@ const GoalInput = props => {
           }}
           onChangeText={goalInputHandler}
         />
-        <Button onPress={props.onCancel} title="CANCEL" color="red" />
-        <Button onPress={addGoalHandler} title="ADD" />
+        <View style={{ flexDirection: "row", justifyContent: "space-between", width: 200 }}>
+          <View style={{ width: "40%" }}>
+            <Button onPress={props.onCancel} title="CANCEL" color="red" />
+          </View>
+          <View style={{ width: "40%" }}>
+            <Button onPress={addGoalHandler} title="ADD" />
+          </View>
+        </View>
       </View>
     </Modal>
   );

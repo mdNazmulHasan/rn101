@@ -7,6 +7,9 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [isAddMode, setIsAddMood] = useState(false);
   const addGoalHandler = goalTitle => {
+    if (goalTitle.length === 0) {
+      return;
+    }
     setIsAddMood(false);
     setCourseGoals(currentGoals => [...currentGoals, goalTitle]);
   };
